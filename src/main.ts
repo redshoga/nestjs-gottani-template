@@ -1,5 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
+import * as logger from 'morgan';
 
 declare const module: any;
 
@@ -11,6 +12,9 @@ async function bootstrap() {
     origin: '*',
     allowedHeaders: 'Origin, X-Requested-With, Content-Type, Accept',
   });
+
+  // Logger(Morgan) Setting
+  app.use(logger('dev'));
 
   await app.listen(3000);
 
