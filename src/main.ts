@@ -1,11 +1,12 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import * as logger from 'morgan';
+import { NestExpressApplication } from '@nestjs/platform-express';
 
 declare const module: any;
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create<NestExpressApplication>(AppModule);
 
   // CORS Enable Setting
   app.enableCors({
@@ -15,6 +16,9 @@ async function bootstrap() {
 
   // Logger(Morgan) Setting
   app.use(logger('dev'));
+
+  // Disable x-powered-by
+  app.disable('x-powered-by');
 
   await app.listen(3000);
 
