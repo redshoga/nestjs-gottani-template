@@ -1,7 +1,8 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import * as logger from 'morgan';
 import { NestExpressApplication } from '@nestjs/platform-express';
+import * as logger from 'morgan';
+import * as helmet from 'helmet';
 
 declare const module: any;
 
@@ -17,8 +18,8 @@ async function bootstrap() {
   // Logger(Morgan) Setting
   app.use(logger('dev'));
 
-  // Disable x-powered-by
-  app.disable('x-powered-by');
+  // Security Settings
+  app.use(helmet());
 
   await app.listen(3000);
 
