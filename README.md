@@ -62,6 +62,19 @@ $ npm run hmr
 $ npm run start:hmr
 ```
 
+## Check authentication endpoint
+
+```bash
+$ curl http://localhost:3000/me
+# {"statusCode":401,"error":"Unauthorized"}
+
+$ curl -X POST http://localhost:3000/login -d '{"username": "john", "password": "changeme"}' -H "Content-Type: application/json"
+# {"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.."}
+
+$ curl http://localhost:3000/me -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.."
+# {"userId":1,"username":"john"}⏎
+```
+
 ## Test
 
 ```bash
