@@ -1,5 +1,6 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 import { ApiModelProperty } from '@nestjs/swagger';
+import { Length } from 'class-validator';
 
 @Entity()
 export class Photo {
@@ -11,6 +12,9 @@ export class Photo {
     description: 'Sample Description',
     example: 'Pretty Cats',
   })
+  // Sample validation setting
+  @Length(5, 20)
+  // TypeORM setting
   @Column({ length: 500 })
   name: string;
 

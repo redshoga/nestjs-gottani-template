@@ -4,6 +4,7 @@ import { NestExpressApplication } from '@nestjs/platform-express';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import * as logger from 'morgan';
 import * as helmet from 'helmet';
+import { ValidationPipe } from '@nestjs/common';
 
 declare const module: any;
 
@@ -21,6 +22,9 @@ async function bootstrap() {
 
   // Security Settings
   app.use(helmet());
+
+  // Vlidation Settings
+  app.useGlobalPipes(new ValidationPipe());
 
   // Swagger Settings
   const options = new DocumentBuilder()

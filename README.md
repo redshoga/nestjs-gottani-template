@@ -21,7 +21,7 @@
 - [x] Start/End MySQL scripts using docker
 - [x] TypeORM sample code included (in `/src/photo/`)
 - [x] Swagger settings (`http://localhost:3000/api`)
-- [ ] Validation settings using entity class
+- [x] Validation settings using `class-validator`
 - [ ] Authentication settings using `passport`
 - [ ] Migration settings
 
