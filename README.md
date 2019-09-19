@@ -22,7 +22,7 @@
 - [x] TypeORM sample code included (in `/src/photo/`)
 - [x] Swagger settings (`http://localhost:3000/api`)
 - [x] Validation settings using `class-validator`
-- [ ] Authentication settings using `passport`
+- [x] Authentication settings using `passport`
 - [ ] Migration settings
 - [ ] Add adding initial/seed data script
 
