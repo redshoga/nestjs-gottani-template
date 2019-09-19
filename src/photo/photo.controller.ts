@@ -1,6 +1,7 @@
-import { Controller, Get, Post } from '@nestjs/common';
+import { Controller, Get, Post, Body } from '@nestjs/common';
 import { PhotoService } from './photo.service';
 import { Photo } from './photo.entity';
+import { ApiResponse } from '@nestjs/swagger';
 
 @Controller('photo')
 export class PhotoController {
@@ -14,5 +15,12 @@ export class PhotoController {
   @Post()
   async create(): Promise<Photo> {
     return this.photoService.createSample();
+  }
+
+  @Post('check')
+  // Sample swagger settings
+  @ApiResponse({ status: 201, description: 'Sample Api Description' })
+  checkPost(@Body() photo: Photo): Photo {
+    return photo;
   }
 }

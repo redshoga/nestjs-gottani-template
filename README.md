@@ -20,7 +20,7 @@
 - [x] Security Settings (use `helmet`) (in `/src/main.ts`)
 - [x] Start/End MySQL scripts using docker
 - [x] TypeORM sample code included (in `/src/photo/`)
-- [ ] Swagger settings
+- [x] Swagger settings (`http://localhost:3000/api`)
 - [ ] Validation settings using entity class
 - [ ] Authentication settings using `passport`
 - [ ] Migration settings
