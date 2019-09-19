@@ -24,6 +24,7 @@
 - [x] Validation settings using `class-validator`
 - [ ] Authentication settings using `passport`
 - [ ] Migration settings
+- [ ] Add adding initial/seed data script
 
 ## Recommend VSCode Extensions
 - [TSLint](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin)
