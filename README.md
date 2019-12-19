@@ -23,7 +23,7 @@
 - [x] Start/End MySQL scripts using docker
 - [x] Swagger settings (`http://localhost:3000/api`)
 - [x] Validation settings using `class-validator`
-- [x] CI setting using GitHub Actions (in `/.github/workflows/ci.yml`)
+- [x] CI setting using GitHub Actions (in `/.github/workflows/ci.yml`. refer to https://github.com/redshoga/nestjs-gottani-template/pull/1)
 - [x] Versioning settings (in `/src/main.ts`)
 - [ ] CRUD Sample (in `/src/...`)
 - [ ] TypeORM sample code included (in `/src/...`)
@@ -98,4 +98,4 @@ $ npm run test:cov
 
 ## License
 
-MIT License.
+MIT Licensed.
