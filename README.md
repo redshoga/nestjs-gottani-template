@@ -25,10 +25,18 @@
 - [x] Validation settings using `class-validator`
 - [x] CI setting using GitHub Actions (in `/.github/workflows/ci.yml`. refer to https://github.com/redshoga/nestjs-gottani-template/pull/1)
 - [x] Versioning settings (in `/src/main.ts`)
-- [ ] CRUD Sample (in `/src/...`)
-- [ ] TypeORM sample code included (in `/src/...`)
-- [ ] Add adding initial/seed data script
-- [ ] Migration settings
+- [ ] CRUD samples (in `/src/todo`)
+  - [x] Create
+  - [ ] Read
+  - [ ] Update
+  - [ ] Delete
+- [ ] Test Sample (in `/src/todo`)
+  - [ ] E2E
+  - [ ] Service
+  - [ ] Controller
+- [x] TypeORM sample code included (in `/src/todo/todo.entity.ts`)
+- [x] Migration settings
+- [ ] Add adding initial/seed data script (in `/src/seed-data.ts`, `/src/seed.ts`)
 - [ ] Formatter settings
 - [ ] Log level filter settings
 - [ ] VSCode debugging settings
@@ -94,6 +102,25 @@ $ npm run test:e2e
 
 # test coverage
 $ npm run test:cov
+```
+
+## DB & Migration
+
+```bash
+# reset DB
+$ npm run db:init
+
+# exec migration files
+$ npm run db:migrate
+
+# plant seed data to DB
+$ npm run db:seed
+
+# initilalize DB
+$ npm run db:init
+
+# create migration file
+$ npm run migration:generate -- { FILE_NAME }
 ```
 
 ## License

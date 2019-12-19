@@ -2,21 +2,23 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule } from './config/config.module';
-import { TypeOrmModule } from '@nestjs/typeorm';
+import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
+import { TodoModule } from './todo/todo.module';
+import { Todo } from './todo/todo.entity';
+
+// tslint:disable-next-line:no-var-requires
+const ormconfig = require(`../ormconfig.${process.env.NODE_ENV || 'development'}.js`);
 
 @Module({
   imports: [
     ConfigModule,
     TypeOrmModule.forRoot({
-      type: 'mysql',
-      host: 'localhost',
-      port: 43306,
-      username: 'root',
-      password: 'mysql',
-      database: 'test',
-      entities: [__dirname + '/**/*.entity{.ts,.js}'],
-      synchronize: true,
-    }),
+      ...ormconfig,
+      entities: [
+        Todo,
+      ],
+    } as TypeOrmModuleOptions),
+    TodoModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -20,12 +20,13 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "typeorm": "",
-    "db:migrate": "",
-    "db:seed": "",
-    "db:reset": "",
-    "db:init": "",
-    "db:migration:generate": ""
+    "tsnode": "ts-node -r tsconfig-paths/register",
+    "typeorm": "npm run tsnode -- ./node_modules/typeorm/cli.js",
+    "db:migration:generate": "npm run typeorm -- migration:generate --config ./ormconfig.migration.js -n",
+    "db:reset": "npm run tsnode -- src/reset.ts",
+    "db:migrate": "npm run typeorm -- migration:run --config ormconfig.migration.js",
+    "db:seed": "npm run tsnode -- src/seed.ts",
+    "db:init": "npm run db:reset && npm run db:migrate && npm run db:seed"
   },
   "dependencies": {
     "@hapi/joi": "^16.1.1",
