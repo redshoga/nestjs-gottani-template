@@ -3,13 +3,9 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule } from './config/config.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { PhotoHttpModule } from './photo/photo-http.module';
-import { AuthModule } from './auth/auth.module';
-import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
-    PhotoHttpModule,
     ConfigModule,
     TypeOrmModule.forRoot({
       type: 'mysql',
@@ -21,8 +17,6 @@ import { UsersModule } from './users/users.module';
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
     }),
-    AuthModule,
-    UsersModule,
   ],
   controllers: [AppController],
   providers: [AppService],

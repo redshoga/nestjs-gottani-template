@@ -3,13 +3,11 @@ import { ConfigService } from './config/config.service';
 
 @Injectable()
 export class AppService {
-  private sampleKey: string;
-  constructor(config: ConfigService) {
-    // this.sampleKey = config.get('SAMPLE_KEY');
-    this.sampleKey = config.sampleKey;
+  constructor(private readonly config: ConfigService) {
   }
 
   getHello(): string {
-    return 'Hello World! ' + this.sampleKey;
+    console.log(`sampleKey: ${this.config.sampleKey}`);
+    return 'Hello World!';
   }
 }
