@@ -5,6 +5,7 @@ import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import * as logger from 'morgan';
 import * as helmet from 'helmet';
 import { ValidationPipe } from '@nestjs/common';
+import { requestLoggerMiddleware } from './request-logger.middleware';
 
 declare const module: any;
 
@@ -19,6 +20,9 @@ async function bootstrap() {
 
   // Logger(Morgan) Setting
   app.use(logger('dev'));
+
+  // Logger(Original) Setting
+  app.use(requestLoggerMiddleware);
 
   // Security Settings
   app.use(helmet());
