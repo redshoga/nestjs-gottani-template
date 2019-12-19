@@ -31,6 +31,7 @@
 - [ ] Migration settings
 - [ ] Formatter settings
 - [ ] Log level filter settings
+- [ ] VSCode debugging settings
 
 ## Recommend VSCode Extensions
 - [TSLint](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin)
