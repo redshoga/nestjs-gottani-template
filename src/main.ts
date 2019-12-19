@@ -6,11 +6,15 @@ import * as logger from 'morgan';
 import * as helmet from 'helmet';
 import { ValidationPipe } from '@nestjs/common';
 import { requestLoggerMiddleware } from './request-logger.middleware';
+import { ConfigService } from './config/config.service';
 
 declare const module: any;
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
+
+  // Basic Authentication Setting
+  const config = app.get<ConfigService>('ConfigService');
 
   // CORS Enable Setting
   app.enableCors({
@@ -32,15 +36,23 @@ async function bootstrap() {
 
   // Swagger Settings
   const options = new DocumentBuilder()
+    .setBasePath(config.apiVersion)
     .setTitle('API Title')
     .setDescription('The API description')
     .setVersion('1.0')
+    // .addBearerAuth('Authorization', 'header')
+    // .setSchemes('https', 'http')
     .build();
   const document = SwaggerModule.createDocument(app, options);
   SwaggerModule.setup('api', app, document);
 
-  await app.listen(3000);
+  // Versioning
+  app.setGlobalPrefix(config.apiVersion);
 
+  // Start
+  await app.listen(process.env.PORT || 3000);
+
+  // HMR
   if (module.hot) {
     module.hot.accept();
     module.hot.dispose(() => app.close());

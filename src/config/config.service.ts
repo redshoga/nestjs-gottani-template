@@ -21,6 +21,7 @@ export class ConfigService {
   private validateInput(envConfig: EnvConfig): EnvConfig {
     const envVarsSchema: Joi.ObjectSchema = Joi.object({
       SAMPLE_KEY: Joi.string().required(),
+      API_VERSION: Joi.string().required(),
     });
 
     const { error, value: validatedEnvConfig } = envVarsSchema.validate(
@@ -37,8 +38,11 @@ export class ConfigService {
     return this.envConfig[key];
   }
 
-  // Custom getter functions
   get sampleKey(): string {
     return this.envConfig.SAMPLE_KEY;
+  }
+
+  get apiVersion(): string {
+    return this.envConfig.API_VERSION;
   }
 }

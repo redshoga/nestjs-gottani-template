@@ -24,6 +24,7 @@
 - [x] Swagger settings (`http://localhost:3000/api`)
 - [x] Validation settings using `class-validator`
 - [x] CI setting using GitHub Actions (in `/.github/workflows/ci.yml`)
+- [x] Versioning settings (in `/src/main.ts`)
 - [ ] CRUD Sample (in `/src/...`)
 - [ ] TypeORM sample code included (in `/src/...`)
 - [ ] Add adding initial/seed data script
@@ -39,6 +40,8 @@
 ```bash
 $ npm install
 ```
+
+Please access `http://localhost:3000/0.1`.
 
 ## Use MySQL
 
