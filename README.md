@@ -12,6 +12,7 @@
 
 ## Features
 
+- [x] Strict TypeScript (`strict: true`)
 - [x] VSCode settings, Auto format settings (in `/.vscode/settings.json`)
 - [x] HMR(Hot Module Replacement) exec settings
 - [x] ConfigModule Setting (use `*.env` files for environment variables)
@@ -19,12 +20,13 @@
 - [x] Logger(`morgan`) Settings (in `/src/main.ts`)
 - [x] Security Settings (use `helmet`) (in `/src/main.ts`)
 - [x] Start/End MySQL scripts using docker
-- [x] TypeORM sample code included (in `/src/photo/`)
 - [x] Swagger settings (`http://localhost:3000/api`)
 - [x] Validation settings using `class-validator`
-- [x] Authentication settings using `passport`
-- [ ] Migration settings
+- [x] CI setting using GitHub Actions (in `/.github/workflows/ci.yml`)
+- [ ] CRUD Sample (in `/src/...`)
+- [ ] TypeORM sample code included (in `/src/...`)
 - [ ] Add adding initial/seed data script
+- [ ] Migration settings
 
 ## Recommend VSCode Extensions
 - [TSLint](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin)
@@ -37,12 +39,24 @@ $ npm install
 
 ## Use MySQL
 
+For bash user (MacOS, UNIX)
+
 ```bash
 # start
-$ sh ./db/start.sh
+$ sh ./db/bash/start.sh
 
 # end
-$ sh ./db/end.sh
+$ sh ./db/bash/end.sh
+```
+
+For powershell, cmd user (Windows)
+
+```powershell
+#start
+$ db/batch/start.bat
+
+#end
+$ db/batch/end.bat
 ```
 
 ## Running the app
@@ -62,19 +76,6 @@ $ npm run hmr
 $ npm run start:hmr
 ```
 
-## Check authentication endpoint
-
-```bash
-$ curl http://localhost:3000/me
-# {"statusCode":401,"error":"Unauthorized"}
-
-$ curl -X POST http://localhost:3000/login -d '{"username": "john", "password": "changeme"}' -H "Content-Type: application/json"
-# {"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.."}
-
-$ curl http://localhost:3000/me -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.."
-# {"userId":1,"username":"john"}⏎
-```
-
 ## Test
 
 ```bash
@@ -90,4 +91,4 @@ $ npm run test:cov
 
 ## License
 
-  Nest is [MIT licensed](LICENSE).
+MIT License.
